@@ -1,0 +1,21 @@
+{
+  "name": "megabattle-minecraft-launcher",
+  "version": "1.0.0",
+  "description": "Minecraft launcher for inner projects and researches ",
+  "main": "index.js",
+  "scripts": {
+    "test": "launch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "megabattle-minecraft-launcher"
+  },
+  "keywords": [
+    "minecraft",
+    "node.js",
+    "electron",
+    "launcher"
+  ],
+  "author": "Danil Kladnitskiy",
+  "license": "ISC"
+}
