@@ -1,0 +1,4 @@
+Failed with exit code: 1
+Output:
+����⪠ �믮����� ᡮ�� ����� �� "megabattle_minecraft_launcher.nuspec".
+Target path 'lib\net45\C:/Users/firem/YandexDisk-dankladnitsky@yandex.ru/Projects/Megabattle Minecraft/Source/megabattle-minecraft-launcher/release_builds/megabattle_minecraft_launcher_win32_x64/megabattle_minecraft_launcher_win32_x64.exe' contains invalid characters.
