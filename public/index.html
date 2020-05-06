@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Megabattle Launcher</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="wrapper" id="wrapper">
+        <div class="logo">
+                <img src="images/logo.png">
+        </div>
+        <div class="server_status" id="server_online">
+        Загружаю текущин онлайн...
+        </div>
+        <div class="character_frame" id="frame">
+            <div class="character_name" id="nickname">
+                [ Никнейм не введён ]
+            </div>
+            <div class="character_skin">
+                <img id="skin" src="images/skin.png">
+            </div>
+        </div>
+        <div class="control" id="control">
+            <div class="button button_play" id="button_play">Играть</div>
+            <div class="button_change-nick" id="button_change">Изменить никнейм</div>
+            <div class="button_change-nick" id="button_setSys">Настроить оперативную память</div>
+        </div>
+        <div class="info" id="info">
+            <p id="info-p">
+                Проверяю файлы игры...
+            </p>
+            <img src="images/status.gif">
+        </div>
+        <div class="javaVersion" id="javaVersion">
+        </div>
+        <div class="auto_connect-p">
+                <input type="checkbox" id="auto_connect"> Автоконнект к серверу
+        </div>
+        <div class="action_status" id="action_status">
+            Сохранено! 
+        </div>
+    </div>
+    <div class="form-popup" id="myForm">
+        <form action="#" class="form-container">
+            <h1>Авторизация</h1>
+
+            <label for="email"><b>Login</b></label>
+            <input type="text" placeholder="Введите логин" name="email" id="userlogin" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="text" placeholder="Введите пароль" name="psw" id="userpwd" required>
+            <p id="login_status">
+                
+            </p>
+            <button type="submit" class="btn" id="btn_save">Войти</button>
+            <button type="button" class="btn cancel" id="btn_close">Закрыть</button>
+        </form>
+    </div>
+    <div class="form-popup sys-popup" id="sysForm">
+        <form action="#" class="form-container">
+            <h1>Установите количество оперативной памяти в (мб)</h1>
+
+            <label for="email"><b>Минимум мб</b></label>
+            <input type="text" placeholder="только число" name="mino" value="1500" id="usermino" required>
+
+            <label for="psw"><b>Максимум мб</b></label>
+            <input type="text" placeholder="только число" name="maxo" value="3000" id="usermaxo" required>
+            <p id="sys_status">
+                Рекомендуется поставить минимум 1.5гб
+            </p>
+            <button type="button" class="btn" id="btn_sys">Сохранить</button>
+        </form>
+    </div>
+</body>
+<!-- If the require doesn't work, include first the jQuery file
+<script src="jquery-3.0.0.min.js"></script>-->
+<script>window.$ = window.jQuery = require('./js/jquery.js');</script>
+<script src="js/script.js"></script>
+</html>
