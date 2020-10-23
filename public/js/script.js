@@ -15,18 +15,21 @@
     let isLogined = false;
     let login;
     let password;
-    let user_nick;
     renderBG();
     function renderBG(){
-        fs.readdir('public/images/bg/', (err, files) => {
+        console.log('./public/images/bg/');
+        fs.readdir('./public/images/bg/', (err, files) => {
         let num = Math.ceil(Math.random() * (files.length-1));
             console.log(files[num]);
-            
-            document.getElementById('wrapper').style.background = 'linear-gradient(180deg, #46008C 5%, rgba(70, 0, 140, 0) 100%),url(images/bg/' + files[num] + ')';
-            document.getElementById('wrapper').style.backgroundPosition = 'center';
-            document.getElementById('wrapper').style.backgroundSize = 'cover';
-            document.getElementById('wrapper').style.backgroundRepeat = 'no-repeat';
             $('#wrapper').show();
+            var image = $('#wrapper');
+        image.fadeOut(10, function () {
+        image.css("background", 'linear-gradient(180deg, #46008C 5%, rgba(70, 0, 140, 0) 100%),url(images/bg/' + files[num] + ')');
+        document.getElementById('wrapper').style.backgroundPosition = 'left';
+            document.getElementById('wrapper').style.backgroundSize = 'cover';
+            document.getElementById('wrapper').style.backgroundRepeat = 'no-repeat';    
+        image.fadeIn(200);
+    });
 });
     }
     //OnLoad
@@ -37,6 +40,7 @@
     function setup(){
         renderUser();
         renderServerInfo();
+        checkEvents();
     } 
     
     //API functions
@@ -53,6 +57,16 @@
 function renderUser(){
     checkConfig();
     
+}
+function checkEvents(){
+    request({uri: "http://mbtl.ru/auth/launcher.php?method=getEvents"}, 
+            function(error, response, body) {
+            let output = JSON.parse(body);
+            if(output.status !== 'ERROR'){
+            $('#current_event').text(output.message);
+            }
+
+        });
 }
 function renderServerInfo(){
     
@@ -118,7 +132,6 @@ function Rotateskin(nick){
           
         document.getElementById('skin').src = "http://mbtl.ru/skins/3d.php?hr="+(rotate + multiply)+"&vr=-20&vrla=0&vrra=0&vrll=0&vrrl=-0&ratio=7&user=" + nick.toLowerCase();
         rotate = rotate + multiply;
-            console.log(rotate);
         if(rotate === -360){
             rotate = 0;
         }
@@ -131,8 +144,8 @@ formInput.addEventListener('click', () => {
         login = userlogin.value;
         password = userpwd.value;
         let auto_connect = document.getElementById('auto_connect').checked;
+        $('#wrapper').fadeTo('fast', 1);
         if (login != null && login != '' && password != null && password != '') {
-            Rotateskin(login);
             ipc.send("login", {
                 username: login,
                 password: password,
@@ -147,7 +160,6 @@ playInput.addEventListener('click', () => {
         let auto_connect = document.getElementById('auto_connect').checked;
         playInput.disabled = true;
         if (login != null && login != '' && password != null && password != '') {
-            Rotateskin(login);
             ipc.send("login", {
                 username: login,
                 password: password,
@@ -162,6 +174,7 @@ playInput.addEventListener('click', () => {
 sysInput.addEventListener('click', () => {
             setSys(usermino.value, usermaxo.value);
             $('#sysForm').slideUp();
+            $('#wrapper').fadeTo('fast', 1);
             if(!isLogined){
                 showLoginScreen();
             }
@@ -180,11 +193,33 @@ setSysInput.addEventListener('click', () =>{
 ipc.on('status', (event, status) => {
         if (status === 'launching') {
             showProccess('Игра запускается');
+            Rotateskin(login);
         }
         if (status === 'LoginError') {
+            showLoginScreen();
             showLoginInfo('Неверный логин / пароль');
             formInput.disabled = false;
         }
+        if(status === 'LauncherIsOutDated'){
+            showLoginScreen();
+            showLoginInfo('Обновите лаунчер до последней версии');
+            formInput.disabled = false;
+        }
+        if(status === 'MaintenanceError'){
+            showLoginScreen();
+            showLoginInfo('На сервере проводятся технические работы.<br>Следите за информацией в группе.');
+            formInput.disabled = false;
+        }
+    if(status === 'AccessDeniedError'){
+            showLoginScreen();
+            showLoginInfo('Вход запрещён.');
+            formInput.disabled = false;
+    }
+    if(status === 'BannedError'){
+            showLoginScreen();
+            showLoginInfo('Вы были забанены.');
+            formInput.disabled = false;
+    }
     if (status === 'LoginSuccess') {
         formInput.disabled = false;
         playInput.disabled = false;
@@ -217,12 +252,15 @@ ipc.on('log', (event, status) => {
         document.getElementById('myForm').style.display = 'block';
     }
     function showDefaultScreen(){
+        $('#wrapper').fadeTo('fast', 1);
         $('#info').hide();
         $('#myForm').slideUp();
         $('#frame').fadeIn();
         $('#control').fadeIn();
+        
     }
     function showLoginScreen(){
+        $('#wrapper').fadeTo('fast', 0.6);
         $('#info').hide();
         $('#myForm').slideDown();
         $('#frame').fadeOut();
@@ -230,7 +268,7 @@ ipc.on('log', (event, status) => {
     }
     function showLoginInfo(value){
         document.getElementById('login_status').style.display = 'block';
-        document.getElementById('login_status').textContent = value;
+        document.getElementById('login_status').innerHTML = value;
     }
     function hideLoginInfo(){
         document.getElementById('login_status').style.display = 'none';
@@ -247,6 +285,7 @@ ipc.on('log', (event, status) => {
         document.getElementById('info-p').innerHTML = value;
     }
 function showProccess(value){
+        $('#wrapper').fadeTo('fast', 1);
         document.getElementById('control').style.display = 'none';
         document.getElementById('myForm').style.display = 'none';
         document.getElementById('frame').style.display = 'block';
@@ -255,6 +294,7 @@ function showProccess(value){
     }
 function showSys(){
     $('#sysForm').slideDown();
+    $('#wrapper').fadeTo('fast', 0.6);
 }
 function setSys(min, max){
     document.getElementById('usermino').value = min;

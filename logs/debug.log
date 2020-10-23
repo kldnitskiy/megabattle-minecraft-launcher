@@ -1,0 +1,16 @@
+[23окт.2020 02:31:19.162] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--username, deno10, --version, Forge, 1.16.3, --gameDir, C:\Users\firem\YandexDisk-dankladnitsky@yandex.ru\Projects\Megabattle_Minecraft\Source\megabattle-minecraft-launcher\bin\minecraft, --assetsDir, C:\Users\firem\YandexDisk-dankladnitsky@yandex.ru\Projects\Megabattle_Minecraft\Source\megabattle-minecraft-launcher\bin\minecraft\assets, --assetIndex, 1.16, --uuid, daab86a2ab913b328be5a91164eb1fbd, --accessToken, ????????, --userType, legacy, --versionType, modified, --width, 925, --height, 530, --launchTarget, fmlclient, --fml.forgeVersion, 34.1.1, --fml.mcVersion, 1.16.3, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20200911.084530]
+[23окт.2020 02:31:19.172] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 7.0.1+78+master.e9771d8 starting: java version 15 by AdoptOpenJDK
+[23окт.2020 02:31:19.183] [main/DEBUG] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Found launch services [minecraft,testharness]
+[23окт.2020 02:31:19.203] [main/DEBUG] [cpw.mods.modlauncher.NameMappingServiceHandler/MODLAUNCHER]: Found naming services : []
+[23окт.2020 02:31:19.212] [main/DEBUG] [cpw.mods.modlauncher.LaunchPluginHandler/MODLAUNCHER]: Found launch plugins: [eventbus,accesstransformer]
+[23окт.2020 02:31:19.229] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Discovering transformation services
+[23окт.2020 02:31:19.233] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Found additional transformation services from discovery services: []
+[23окт.2020 02:31:19.281] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Found transformer services : []
+[23окт.2020 02:31:19.282] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services loading
+[23окт.2020 02:31:19.284] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Configuring option handling for services
+[23окт.2020 02:31:19.293] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services initializing
+[23окт.2020 02:31:19.295] [main/DEBUG] [cpw.mods.modlauncher.NameMappingServiceHandler/MODLAUNCHER]: Current naming domain is 'mojang'
+[23окт.2020 02:31:19.297] [main/DEBUG] [cpw.mods.modlauncher.NameMappingServiceHandler/MODLAUNCHER]: Identified name mapping providers {}
+[23окт.2020 02:31:19.297] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services begin scanning
+[23окт.2020 02:31:19.298] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services loading transformers
+[23окт.2020 02:31:19.300] [main/ERROR] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Cannot find launch target fmlclient, unable to launch

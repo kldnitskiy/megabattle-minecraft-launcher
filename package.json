@@ -23,11 +23,16 @@
   "license": "ISC",
   "dependencies": {
     "electron-packager": "^14.2.1",
+<<<<<<< Updated upstream
+=======
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-winstaller": "^4.0.1",
+>>>>>>> Stashed changes
     "express": "^4.17.1",
     "generate-password": "^1.5.1",
-    "minecraft-launcher-core": "^3.13.1"
+    "minecraft-launcher-core": "^3.15.0"
   },
   "devDependencies": {
-    "electron": "^8.2.4"
+    "electron": "^8.5.2"
   }
 }

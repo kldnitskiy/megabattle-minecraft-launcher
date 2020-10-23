@@ -19,9 +19,45 @@ body{
     transition: all 0.3s ease;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: left;
     display: none;
+    animation: bg 13s infinite;
+    animation-timing-function: ease-in-out;
     
+}
+#current_event{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    animation: zoom 4s infinite;
+    height: 20px;
+    line-height: 20px;
+}
+@keyframes zoom {
+  0% {
+    font-size: 16px;
+  }
+
+  50% {
+    font-size: 17px;
+  }
+    
+  100% {
+    font-size: 16px;
+  }  
+}
+@keyframes bg {
+  0% {
+    background-position: left;
+  }
+
+  50% {
+    background-position: center;
+  }
+    
+  100% {
+    background-size: left;
+  }  
 }
 .logo{
     padding-top: 30px;
